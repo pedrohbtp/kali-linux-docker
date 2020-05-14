@@ -1,4 +1,4 @@
-FROM kalilinux/kali-linux-docker
+FROM kalilinux/kali-rolling
 
 RUN echo "deb http://http.kali.org/kali kali-rolling main contrib non-free" > /etc/apt/sources.list && \
 echo "deb-src http://http.kali.org/kali kali-rolling main contrib non-free" >> /etc/apt/sources.list
@@ -22,8 +22,8 @@ RUN apt-get install -y --no-install-recommends --allow-unauthenticated \
     && rm -rf /var/lib/apt/lists/*
 
 # For installing Kali metapackages uncomment needed lines
-RUN apt-get update && apt-cache search kali-linux && apt-get install -y   \
-        kali-linux-top10
+# RUN apt-get update && apt-cache search kali-linux && apt-get install -y   \
+#         kali-linux-top10
 
 ENV TINI_VERSION v0.15.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /bin/tini
