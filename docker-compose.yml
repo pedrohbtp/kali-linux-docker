@@ -1,0 +1,13 @@
+version: '2.1'
+
+services:
+  kali-linux:
+    image: kali-docker-vnc
+    build: .
+    restart: always
+    ports:
+      # port for accessing the browser view
+      - 6080:80
+      # port for the VNC service
+      - 5900:5900
+ 
